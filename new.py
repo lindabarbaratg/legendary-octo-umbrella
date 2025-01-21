@@ -69,19 +69,19 @@ def run_bot(data_account, recover=1):
         driver.get(kw)
         time.sleep(3)
         
-        src_list = []
+        
 
-        for i in range(1, 21):
-            selector = f'body > div > div.gallery-grid > div:nth-child({i}) > div.tg-channel-link > a > img'
-            element = driver.find_element(By.CSS_SELECTOR, selector)
-            src = element.get_attribute('src')
+        
+        selector = '#content > div:nth-child(1) > div.tg-channels.is-detail > div.tg-channel-wrapper.is-detail > div > div.tg-channel-img > img'
+        element = driver.find_element(By.CSS_SELECTOR, selector)
+        src = element.get_attribute('src')
             
             
-            src_list.append(src+'\n')
+        
        
         response = (
             supabase.table(SUPABASE_TABLE_NAME)
-            .insert({"result": src_list})
+            .insert({"result": src+'\n'})
             .execute()
         )    
 
