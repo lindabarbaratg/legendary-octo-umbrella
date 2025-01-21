@@ -72,9 +72,9 @@ def run_bot(data_account, recover=1):
         
 
         
-        selector = '#content > div:nth-child(1) > div.tg-channels.is-detail > div.tg-channel-wrapper.is-detail > div > div.tg-channel-img > img'
-        element = driver.find_element(By.CSS_SELECTOR, selector)
-        src = element.get_attribute('src')
+        selectorx = '//*[@id="content"]/div[1]/div[1]/div[1]/div/div[2]/img'
+        elementx = driver.find_element(By.XPATH, selectorx)
+        src = elementx.get_attribute('src')
             
             
         
